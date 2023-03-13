@@ -4,6 +4,7 @@ My third app made with Dart/Flutter! 🚀
 
 In it I learned about:
 * How to use GridView
+* How to use TextTheme
 
 Some screenshots:
 

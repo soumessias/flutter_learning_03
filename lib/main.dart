@@ -9,8 +9,14 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Receitas',
       theme: ThemeData(
-        primarySwatch: Colors.red,
-      ),
+          primarySwatch: Colors.red,
+          secondaryHeaderColor: Colors.redAccent,
+          textTheme: ThemeData.light().textTheme.copyWith(
+                titleMedium: TextStyle(
+                    fontSize: 20,
+                    color: Colors.redAccent,
+                    fontWeight: FontWeight.bold),
+              )),
       home: CategoriesScreen(),
     );
   }
