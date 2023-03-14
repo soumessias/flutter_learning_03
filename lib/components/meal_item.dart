@@ -1,7 +1,5 @@
 import 'package:app_03/models/meal.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/src/widgets/placeholder.dart';
 import '../models/meal.dart';
 import '../utils/app_routes.dart';
 

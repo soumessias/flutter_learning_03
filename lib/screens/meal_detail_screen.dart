@@ -2,20 +2,25 @@ import 'package:app_03/models/meal.dart';
 import 'package:flutter/material.dart';
 
 class MealDetailScreen extends StatelessWidget {
+  final Function(Meal) onToggleFavorite;
+  final bool Function(Meal) inFavorite;
+
+  const MealDetailScreen(this.onToggleFavorite, this.inFavorite);
+
+  _titleContainers(title) {
+    return Text(
+      title,
+      style: TextStyle(
+        fontSize: 20,
+        fontWeight: FontWeight.bold,
+        color: Colors.redAccent,
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     final meal = ModalRoute.of(context)?.settings.arguments as Meal;
-
-    _titleContainers(title) {
-      return Text(
-        title,
-        style: TextStyle(
-          fontSize: 20,
-          fontWeight: FontWeight.bold,
-          color: Colors.redAccent,
-        ),
-      );
-    }
 
     return Scaffold(
       appBar: AppBar(
@@ -52,7 +57,7 @@ class MealDetailScreen extends StatelessWidget {
                 color: Colors.white,
                 border: Border.all(color: Colors.grey.shade400),
               ),
-              height: 200,
+              height: 180,
               child: ListView(
                 children: meal.ingredients
                     .map(
@@ -125,6 +130,20 @@ class MealDetailScreen extends StatelessWidget {
             ),
           ],
         ),
+      ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          onToggleFavorite(meal);
+        },
+        child: Icon(
+          inFavorite(meal) ? Icons.favorite : Icons.favorite_border,
+          size: 30,
+          color: Colors.redAccent,
+        ),
+        backgroundColor: Colors.white,
+        splashColor: Colors.white,
+        elevation: 3,
       ),
     );
   }
