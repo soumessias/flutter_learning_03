@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'screens/categories_screen.dart';
+import 'screens/categories_meals_screen.dart';
+import 'utils/app_routes.dart';
+import 'screens/meal_detail_screen.dart';
 
 void main() => runApp(MyApp());
 
@@ -7,7 +10,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Receitas',
+      title: 'Receitas do Casal',
       theme: ThemeData(
           primarySwatch: Colors.red,
           secondaryHeaderColor: Colors.redAccent,
@@ -17,7 +20,11 @@ class MyApp extends StatelessWidget {
                     color: Colors.redAccent,
                     fontWeight: FontWeight.bold),
               )),
-      home: CategoriesScreen(),
+      routes: {
+        AppRoutes.HOME: (ctx) => CategoriesScreen(),
+        AppRoutes.CATEGORIES_MEALS: (ctx) => CategoriesMealsScreen(),
+        AppRoutes.MEAL_DETAIL: (ctx) => MealDetailScreen(),
+      },
     );
   }
 }

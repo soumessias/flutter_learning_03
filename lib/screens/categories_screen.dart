@@ -1,6 +1,5 @@
 import 'package:app_03/components/category_item.dart';
 import 'package:flutter/material.dart';
-import '../models/category.dart';
 import '../data/dummy_data.dart';
 
 class CategoriesScreen extends StatelessWidget {
@@ -11,8 +10,11 @@ class CategoriesScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text(
-          "Receitas",
-          style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
+          'Receitas do Casal',
+          style: TextStyle(
+            fontSize: 25,
+            fontWeight: FontWeight.bold,
+          ),
         ),
       ),
       body: GridView(
